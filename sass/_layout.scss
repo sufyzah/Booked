@@ -1,0 +1,102 @@
+// SASS VARIABLES
+$BP-largest: 75em;      //1200px
+$BP-large: 68.75em;      //1100px
+$BP-medium: 56.25em;      //900px
+$BP-small: 37.5em;      //600px
+$BP-smallest: 31.25em;      //500px
+
+.container{
+    max-width: 120rem;
+    background-color: var(--color-grey-light-1);
+    margin: 8rem auto;
+    // min-height: 50rem;
+    box-shadow: var(--shadow-dark);
+
+    @media only screen and (max-width: $BP-largest){
+        margin: 0;
+        max-width: 100%;
+    }
+}
+
+.header{
+    font-size: 1.4rem;
+    height: 7rem;
+    background-color: #fff;
+    border-bottom: 1px solid var(--color-grey-light-2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    @media only screen and (max-width: $BP-smallest){
+        height: 11rem;
+        flex-wrap: wrap;
+        align-content: space-around;
+    }
+}
+
+.content{
+    display: flex;
+
+    @media only screen and (max-width: $BP-medium){
+        flex-direction: column;
+    }
+}
+
+.sidebar{
+    background-color: var(--color-grey-dark-1);
+    flex: 0 0 18%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hotel-view{
+    flex: 1;
+}
+
+.details{
+    display: flex;
+    background-color: var(--color-grey-light-1);
+    padding: 4.5rem;
+    border-bottom: var(--line);
+    font-size: 1.4rem;
+
+    @media only screen and (max-width: $BP-medium){
+        padding: 3rem;
+    }
+
+    @media only screen and (max-width: $BP-small){
+        padding: 2rem;
+        flex-direction: column;
+    }
+}
+
+.description{
+    background-color: #fff;
+    flex: 0 0 55%;
+    box-shadow: var(--shadow-light);
+    padding: 3rem;
+
+    @media only screen and (max-width: $BP-medium){
+    padding: 2rem;
+    }
+}
+
+.user-reviews{
+    flex: 1;
+    margin-left: 4.5rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media only screen and (max-width: $BP-medium){
+    margin-left: 3rem;
+    }
+
+    @media only screen and (max-width: $BP-small){
+        margin-left: 0;
+        margin-top: 2rem;
+    }
+}

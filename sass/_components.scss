@@ -1,0 +1,582 @@
+// SASS VARIABLES
+$BP-largest: 75em;      //1200px
+$BP-large: 68.75em;      //1100px
+$BP-medium: 56.25em;      //900px
+$BP-small: 37.5em;      //600px
+$BP-smallest: 31.25em;      //600px
+
+///////////////////////////////////////
+//    LOGO
+.logo{
+    height: 3.25rem;
+    margin-left: 2rem;
+}
+
+///////////////////////////////////////
+//    SEARCH BOX
+.search{
+    flex: 0 0 40%;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media only screen and (max-width: $BP-smallest){
+        order: 1;
+        flex: 0 0 100%;
+    }
+
+    &__input{
+        font-family: inherit;
+        font-size: inherit;
+        background-color: var(--color-grey-light-2);
+        color: inherit;
+        padding: .7rem 2rem;
+        border: none;
+        border-radius: 200px;
+        width: 80%;
+        outline: none;
+        transition: all .2s;
+        margin-right: -3.25rem;
+        
+        &:focus{
+            width: 100%;
+            outline: none;
+            background-color: var(--color-grey-light-3);
+        }
+    }
+    
+    &__input:focus + &__btn{
+        background-color: var(--color-grey-light-3);
+    }
+    
+    &__input::placeholder{
+        color: var(--color-grey-light-5);
+        font-weight: 100;
+    }
+    
+    &__btn{
+        border: none;
+        background-color: var(--color-grey-light-2);
+        outline: none;
+        fill: var(--color-grey-light-4);
+        cursor: pointer;
+        
+        &:focus{
+            outline: none;
+            border: none;
+        }
+        &:active{
+            transform: translateY(2px);
+        }
+    }
+
+    &__icon{
+        height: 2rem;
+        width: 2rem;
+        outline: none;
+
+    }
+}
+
+///////////////////////////////////////
+//    USER NAVIGATION
+.user-nav{
+    display: flex;
+    align-self: stretch;
+    
+    & > *{
+        padding: 0 2rem;
+        transition: all .2s;
+        cursor: pointer;
+        
+        display: flex;
+        align-items: center;
+        
+        &:hover{
+            background-color: var(--color-grey-light-2);
+        }
+        
+        &:active{
+            background-color: var(--color-grey-light-3);
+        }
+
+        }
+        
+        &__icon-box{
+            position: relative;
+        }
+        
+        &__icon{
+            height: 2.25rem;
+            width: 2.25rem;
+            fill: var(--color-grey-dark-2);
+        }
+        
+        &__notification{
+            font-size: 1.3rem;
+            color: #fff;
+            background-color: var(--color-primary);
+            border-radius: 50%;
+            height: 1.75rem;
+            width: 1.75rem;
+            position: absolute;
+            top: 1.5rem;
+            right: 1.1rem;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        &__user{
+
+            &-photo{
+                height: 3.75rem;
+                border-radius: 50%;
+                margin-right: 1.5rem;
+            }
+        }
+}
+
+///////////////////////////////////////
+//    SIDE NAVIGATION
+
+.sidebar-nav{
+    list-style: none;
+    font-size: 1.6rem;
+    margin-top: 3rem;
+
+    @media only screen and (max-width: $BP-medium){
+        margin: 0;
+        display: flex;
+    }
+
+    &__item{
+        position: relative;
+
+        &:not(:last-child){
+            margin-bottom: 5px;
+
+            @media only screen and (max-width: $BP-medium){
+                margin: 0;
+            }
+        }
+
+        @media only screen and (max-width: $BP-medium){
+            flex: 1;
+        }
+    }
+    
+    &__item::before{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: var(--color-primary);
+        width: 5px;
+        height: 100%;
+        transform: scaleY(0);
+        transition: transform .2s,
+                    width .4s cubic-bezier(1,0,0,1) .2s,
+                    background-color .1s;
+    }
+
+    &__item:hover::before,
+    &__item--active::before{
+        transform: scaleY(1);
+        width: 100%;
+    }
+
+    &__item:active::before{
+        background-color: var(--color-primary-light);
+    }
+    
+    &__link:link,
+    &__link:visited{
+        text-decoration: none;
+        text-transform: uppercase;
+        color: #fff;
+        outline: none;
+        padding: 1.3rem 3rem;
+        position: relative;
+        z-index: 10;               //z-index property wont work without position property that's why we put in it.
+
+        display: flex;
+        align-items: center;
+
+        @media only screen and (max-width: $BP-medium){
+        padding: 1.5rem 1.5rem;
+        justify-content: center;
+        }
+
+        @media only screen and (max-width: $BP-small){
+        padding: 1rem 1.5rem;
+        flex-direction: column;
+        }
+    }
+
+    &__icon{
+        height: 1.75rem;       
+        width: 1.75rem;       
+        fill: currentColor;
+        margin-right: 2rem;
+        
+        @media only screen and (max-width: $BP-small){
+            margin-right: 0;
+            margin-bottom: .4rem;
+        }
+    }
+}
+
+
+
+///////////////////////////////////////
+//    LEGAL TEXT
+
+.legal{
+    font-size: 1.2rem;
+    color: var(--color-grey-light-3);
+    padding: 2rem;
+    text-align: center;
+
+    @media only screen and (max-width: $BP-medium){
+        display: none;
+    }
+}
+
+///////////////////////////////////////
+//    GALLERY
+
+.gallery{
+    display: flex;
+}
+.gallery__photo{
+    width: 100%;
+    display: block;
+}
+
+///////////////////////////////////////
+//    HOTEL OVERVEIW
+
+.overview{
+    background-color: var(--color-grey-light-2);
+    border-bottom: 1px solid var(--color-grey-light-2);
+    display: flex;
+    align-items: center;
+
+
+
+    &__heading{
+        font-size: 2.25rem;
+        text-transform: uppercase;
+        font-weight: 300;
+        letter-spacing: 1px;
+        padding: 1.5rem 3rem;
+        
+        @media only screen and (max-width:$BP-small){
+            font-size: 1.25rem;
+            padding: 1.5rem 1.5rem;
+        }
+    }
+
+    &__stars{
+        margin-right: auto;
+        display: flex;
+    }
+
+    &__icon-star,
+    &__icon-location{
+        height: 1.75rem;
+        width: 1.75rem;
+        fill: var(--color-primary);
+    }
+
+    &__location{
+        display: flex;
+        align-items: center;
+    }
+
+    &__rating{
+        background-color: var(--color-primary);
+        color: #fff;
+        margin-left: 3rem;
+        align-self: stretch;
+        padding: 0 2.25rem;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        @media only screen and (max-width:$BP-small){
+            padding: 0 1.12rem;
+        }
+
+        &-average{
+            font-size: 2.25rem;
+            font-weight: 300;
+            margin-bottom: -3px;
+
+            @media only screen and (max-width:$BP-small){
+                font-size: 1.5rem;
+                padding: 0 1.12rem;
+            }
+        }
+    
+        &-count{
+            text-transform: uppercase;
+            font-size: .8rem;
+        }
+    }
+}
+
+.btn-inline{
+    border: none;
+    color: var(--color-primary);
+    font-size: 1.5rem;
+    padding-bottom: 2px;
+    border-bottom: 1px solid currentColor;
+    transition: all .2s;
+    background-color: transparent;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    
+    @media only screen and (max-width:$BP-small){
+        font-size: 1.2rem;
+    }
+
+    & span{
+        margin-left: 3px;
+        transition: all .2s;
+    }
+
+    &:hover{
+        color: var(--color-grey-dark-1);
+
+        span{
+            margin-left: 12px;
+        }
+    }
+
+    &:focus{
+        outline: none;
+    }
+}
+
+///////////////////////////////////////
+//    PARAGRAPH
+.paragraph:not(:last-of-type){
+    margin-bottom: 2rem;
+}
+
+///////////////////////////////////////
+//    LIST
+
+.list{
+    list-style: none;
+    padding: 3rem 0;
+    border-bottom: var(--line);
+    border-top: var(--line);
+    margin: 3rem 0;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    &__item{
+        flex: 0 0 50%;
+
+        &::before{
+            content: "";
+            background-color: var(--color-primary);
+            height: 1rem;
+            width: 1rem;
+            margin-right: .7rem;
+            display: inline-block;
+            //For Older Browser
+            background-image: url(../img/chevron-thin-right.svg);
+            background-size: cover;
+
+            @supports (mask-size: cover) or (mask-image: url()){
+            //For Newer Browser Mask Property
+            mask-image: url(../img/chevron-thin-right.svg);
+            mask-size: cover;
+            background-image: none;
+            }
+        }
+    }
+}
+
+///////////////////////////////////////
+//    RECOMMEND
+
+.recommend{
+    font-size: 1.3rem;
+    color: var(--color-grey-dark-3);
+    display: flex;
+    align-items: center;
+    &__count{
+        margin-right: auto;
+    }
+
+    &__friends{
+        display: flex;
+    }
+
+    &__photo{
+        height: 4rem;
+        width: 4rem;
+        border-radius: 50%;
+        border: 3px solid #fff;
+        
+        &:not(:last-child){
+            margin-right: -2rem;
+        }
+    }
+}
+
+///////////////////////////////////////
+//    REVIEWS
+
+.review{
+    background-color: #fff;
+    box-shadow: var(--shadow-light);
+    margin-bottom: 3.5rem;
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+
+    @media only screen and (max-width: $BP-small){
+        margin-bottom: 2rem;
+    }
+ 
+    &__text{
+        z-index: 100;
+        position: relative;
+        margin-top: 1rem;
+    }
+
+    &__user{
+        display: flex;
+        align-items: center;
+        margin-top: 2rem;
+    }
+    
+    &__photo{
+        height: 5rem;
+        width: 5rem;
+        border-radius: 50%;
+        margin-right: 2rem;
+    }
+    
+    &__user-box{
+        
+        margin-right: auto;
+    }
+
+    &__user-name{   
+        font-weight: 600;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        margin-bottom: .5rem;
+
+    }
+
+    &__user-date{
+        font-size: 1rem;
+
+    }
+
+    &__rating{
+        font-size: 2.2rem;
+        font-weight: 300;
+        color: var(--color-primary);
+
+    }
+
+    &::before{
+        content: "\201C ";
+        font-family: serif;
+        font-size: 16rem;
+        color: var(--color-grey-light-2);
+        position: absolute;
+        z-index: 1;
+        top: -6rem;
+        left: -1.2rem;
+    }
+}
+
+///////////////////////////////////////
+//    CTA
+
+.cta{
+    padding: 3.5rem 0;
+    text-align: center;
+    background-color: #fff;
+
+    &__book-now{
+        font-size: 2rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        margin-bottom: 2.5rem;
+        background-image: linear-gradient(to right, var(--color-primary-light), var(--color-primary-dark));
+        background-clip: text;
+        color: transparent;
+    }
+
+    @media only screen and (max-width: $BP-medium){
+        padding: 2.3rem 0;
+    }
+}
+
+///////////////////////////////////////
+//    BTN
+.btn{
+    font-size: 1.5rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 2rem 7.5rem;
+    border: none;
+    border-radius: 50px;
+    background-image: linear-gradient(to right, var(--color-primary-light), var(--color-primary-dark));
+    position: relative;
+    overflow: hidden;
+
+    & > *{
+        display: inline-block;
+        height: 100%;   
+        width: 100%;
+        transition: all .2s;
+    }
+
+    &__visible{
+    }
+
+    &__invisible{
+        position: absolute;
+        top: -100%;
+        left: 0;
+    }
+    
+    &:hover{
+        background-image: linear-gradient(to left, var(--color-primary-light), var(--color-primary-dark));
+        box-shadow: var(--shadow-light);
+    }
+
+    &:hover &__invisible{
+        top: 35%;
+        left: 0;
+    }
+
+    &:hover &__visible{
+        transform: translateY(200%);
+    }
+
+    &:focus{
+        outline: none;
+    }
+    
+}
